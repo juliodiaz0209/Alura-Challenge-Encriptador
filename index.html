@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Encriptador de Textos - Protege y transforma tus textos de manera segura y sencilla.">
+    <title>Encriptador de Textos Moderno</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="logo-container" aria-label="Logo principal">
+                <svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-labelledby="title">
+                    <title>Dynamic Logo</title>
+                    <defs>
+                        <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#ff007c;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#00b4db;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="50" cy="50" r="45" fill="url(#logo-gradient)" />
+                    <path d="M35 50 L50 30 L65 50 L50 70 Z" fill="white" />
+                </svg>
+                <h1>Encriptador Moderno</h1>
+            </div>
+            <p class="hero-subtitle">Protege y transforma tus textos fácilmente.</p>
+            <a href="#content" class="cta-button">Empezar</a>
+        </div>
+    </header>
+    <main id="content">
+        <section class="card">
+            <div class="input-container">
+                <label for="text-input">Escribe tu texto</label>
+                <textarea id="text-input" placeholder="Solo minúsculas, sin acentos" aria-describedby="warning-message"></textarea>
+                <p id="warning-message" class="warning" role="alert">Usa solo letras minúsculas.</p>
+            </div>
+            <div class="buttons">
+                <button id="encrypt-btn" class="btn primary" aria-label="Encriptar texto">Encriptar</button>
+                <button id="decrypt-btn" class="btn secondary" aria-label="Desencriptar texto">Desencriptar</button>
+                <button id="copy-btn" class="btn tertiary" aria-label="Copiar resultado">Copiar</button>
+            </div>
+            <label for="message" class="message-label" aria-hidden="true">Resultado</label>
+            <div class="message-container" aria-live="polite">
+                <p id="message">Ningún mensaje encontrado</p>
+            </div>
+        </section>
+        <div id="weather-container">
+            <div id="loading-message">Cargando datos del clima...</div>
+            <div id="weather-summary" aria-hidden="true">
+                <span id="weather-icon">☀️</span>
+                <span id="weather-temperature">--°C</span>
+                <span id="weather-country">País</span>
+            </div>
+            <div id="weather-details" aria-hidden="true">
+                <div id="weather-description">Descripción</div>
+                <div id="temperature">Temperatura: --°C</div>
+                <div id="wind-speed">Velocidad del viento: -- m/s</div>
+                <div id="location">Ubicación: Latitud --, Longitud --</div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Encriptador Moderno. Todos los derechos reservados.</p>
+    </footer>
+
+    <div id="dark-mode-toggle" class="dark-mode-toggle">
+        <input type="checkbox" id="dark-mode-switch" aria-label="Cambiar a modo oscuro">
+        <label for="dark-mode-switch" id="dark-mode-label">🌙</label>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>

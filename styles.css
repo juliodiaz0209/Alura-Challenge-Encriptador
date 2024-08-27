@@ -1,0 +1,736 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Russo+One&family=Montserrat:wght@700&display=swap');
+
+/* Global Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+    overflow-x: hidden;
+}
+
+/* Color Variables for Light Mode */
+:root {
+    --background-color: #f5f5f5;
+    --text-color: #333;
+    --primary-color: #1f80e0;
+    --secondary-color: #00b4db;
+    --card-background: #ffffff;
+    --input-background: #f0f0f0;
+    --border-color: #ccc;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    --background-color: #121212;
+    --text-color: #e0e0e0;
+    --primary-color: #1f80e0;
+    --card-background: #1f1f1f;
+    --input-background: #2e2e2e;
+    --border-color: #444;
+}
+
+/* Hero Section */
+header.hero {
+    position: relative;
+    background: url('https://cdn.wallpapersafari.com/47/23/eXgXEB.jpg') no-repeat center/cover;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 120px 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.logo-svg {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+    animation: logoRotate 8s linear infinite;
+}
+
+@keyframes logoRotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+h1 {
+    font-family: 'Russo One', sans-serif;
+    font-size: 64px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+.hero-subtitle {
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    margin-top: 20px;
+    font-weight: 300;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+/* Call to Action Button */
+.cta-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 14px 28px;
+    font-size: 18px;
+    color: white;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 35px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    font-family: 'Russo One', sans-serif;
+    box-shadow: 0 4px 10px rgba(31, 128, 224, 0.4);
+}
+
+.cta-button:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.05);
+    box-shadow: 0 6px 14px rgba(31, 128, 224, 0.6);
+}
+
+/* Main Section and Card */
+main {
+    width: 100%;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.card {
+    background-color: var(--card-background);
+    border-radius: 15px;
+    box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.6);
+    padding: 40px;
+    margin: 20px 0;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.7);
+}
+
+/* Input Area */
+.input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: var(--text-color);
+    text-align: center;
+}
+
+textarea {
+    width: 100%;
+    height: 180px;
+    padding: 14px;
+    border-radius: 10px;
+    border: 2px solid var(--border-color);
+    font-size: 16px;
+    resize: none;
+    background-color: var(--input-background);
+    color: var(--text-color);
+    transition: border-color 0.3s;
+    text-align: center;
+}
+
+textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 10px rgba(31, 128, 224, 0.5);
+}
+
+.warning {
+    color: #ff007c;
+    font-size: 14px;
+    margin-top: 10px;
+    display: none;
+}
+
+/* Buttons Styling */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 14px 28px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    color: white;
+    font-family: 'Russo One', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.primary {
+    background-color: var(--primary-color);
+}
+
+.primary:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.05);
+    box-shadow: 0 6px 14px rgba(31, 128, 224, 0.6);
+}
+
+.secondary {
+    background-color: var(--secondary-color);
+}
+
+.secondary:hover {
+    background-color: #0099cc;
+    transform: scale(1.05);
+}
+
+.tertiary {
+    background-color: #ff6f61;
+}
+
+.tertiary:hover {
+    background-color: #e55b50;
+    transform: scale(1.05);
+}
+
+/* Message Area */
+.message-label {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    visibility: hidden;
+    color: var(--text-color);
+}
+
+.message-container {
+    height: 180px;
+    overflow-y: auto;
+    text-align: center;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    padding: 14px;
+    background-color: var(--input-background);
+}
+
+#message {
+    font-size: 18px;
+    color: var(--text-color);
+    white-space: pre-wrap;
+}
+
+/* Compact and Improved Weather Widget */
+#weather-container {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    background-color: var(--card-background);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    width: 220px;
+    height: 100px; /* Compact initial height */
+    transition: height 0.4s ease, width 0.4s ease; /* Smooth expansion */
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+    overflow: hidden; /* Hide overflowing content when compact */
+    border: 1px solid var(--border-color); /* Dynamic border based on mode */
+}
+
+#weather-container:hover {
+    height: 240px; /* Expanded height on hover */
+    width: 240px; /* Slight width expansion on hover */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+}
+
+/* Hide the weather details initially */
+#weather-country, #weather-details {
+    display: none; /* Hide country and details by default */
+}
+
+#weather-container:hover #weather-country, 
+#weather-container:hover #weather-details {
+    display: block; /* Show country and details on hover */
+}
+
+#loading-message {
+    color: var(--text-color); /* Dynamic text color */
+    font-size: 1em;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+#weather-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#weather-icon {
+    font-size: 2em;
+    margin-bottom: 5px;
+    color: var(--primary-color); /* Dynamic color for the weather icon */
+}
+
+#weather-temperature {
+    font-weight: 700;
+    font-size: 1.4em;
+    color: #ffae00; /* Bright color for temperature */
+    margin-bottom: 5px;
+}
+
+#weather-country {
+    margin-top: 3px;
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+    color: var(--secondary-color); /* Dynamic color for the country */
+}
+
+#weather-details {
+    padding: 5px;
+    font-size: 0.9em;
+    display: block;
+    text-align: center;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease-in-out; /* Fade-in effect for details */
+}
+
+#weather-container:hover #weather-details {
+    opacity: 1; /* Show details on hover */
+}
+
+#weather-description, #temperature, #wind-speed, #location {
+    text-align: center;
+    margin: 4px 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    font-size: 0.9em;
+    color: var(--text-color); /* Dynamic color for descriptive text */
+}
+
+/* Specific adjustment for the location line */
+#location {
+    font-size: 0.85em;
+    color: var(--text-color); /* Dynamic color for the location */
+}
+
+/* Weather Country and Location hover effect */
+#weather-country:hover, #location:hover {
+    color: #ffae00; /* Highlight effect on hover */
+    transition: color 0.3s;
+}
+
+/* Footer */
+footer {
+    background-color: #111111;
+    color: #ffffff;
+    width: 100%;
+    padding: 30px;
+    text-align: center;
+    margin-top: 60px;
+}
+
+/* Dark Mode Toggle */
+.dark-mode-toggle {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    z-index: 1000;
+    background: var(--card-background);
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode-toggle input[type="checkbox"] {
+    display: none;
+}
+
+.dark-mode-toggle label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 1.8em;
+    color: var(--text-color);
+}
+
+body.dark-mode .dark-mode-toggle {
+    background-color: var(--card-background);
+}
+
+/* Para tablets y teléfonos */
+@media (max-width: 768px) {
+    body {
+        padding: 0 10px;
+    }
+
+    header.hero {
+        padding: 80px 10px;
+    }
+
+    h1 {
+        font-size: 48px;
+    }
+
+    .hero-subtitle {
+        font-size: 18px;
+    }
+
+    .cta-button {
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+
+    .logo-svg {
+        width: 100px;
+        height: 100px;
+    }
+
+    main {
+        padding: 0 10px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    textarea {
+        height: 120px;
+        font-size: 14px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    .buttons {
+        gap: 10px;
+    }
+
+    /* Widget del clima para tablets */
+    #weather-container {
+        width: 70px;
+        height: 70px;
+        padding: 5px;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: width 0.3s, height 0.3s;
+    }
+
+    #weather-container:hover {
+        width: 140px;
+        height: auto;
+        justify-content: start;
+        padding: 8px;
+        overflow: visible;
+    }
+
+    /* Mostrar siempre el emoji y la temperatura */
+    #weather-icon,
+    #weather-temperature {
+        display: block !important; /* Asegurarse de que se muestran siempre */
+    }
+
+    /* Mostrar el nombre de la ciudad solo al expandirse */
+    #weather-country {
+        display: none;
+    }
+
+    /* Mostrar el nombre de la ciudad cuando el widget se expande */
+    #weather-container:hover #weather-country {
+        display: block !important;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.85em;
+        color: #00b4db;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 2px; /* Reducir margen inferior */
+    }
+
+    /* Reducir espaciado entre emoji y temperatura */
+    #weather-icon {
+        font-size: 1.2em;
+        margin-bottom: 2px; /* Reducir espaciado debajo del emoji */
+    }
+
+    #weather-temperature {
+        font-size: 0.85em;
+        font-weight: bold;
+        margin-bottom: 2px; /* Reducir espaciado debajo de la temperatura */
+    }
+
+    /* Mostrar solo los detalles adicionales al expandirse */
+    #weather-description,
+    #temperature,
+    #wind-speed,
+    #location {
+        display: none;
+    }
+
+    /* Mostrar detalles adicionales cuando el widget se expande */
+    #weather-container:hover #weather-description,
+    #weather-container:hover #temperature,
+    #weather-container:hover #wind-speed,
+    #weather-container:hover #location {
+        display: block !important;
+    }
+
+    /* Ajustes de texto más compacto para los detalles */
+    #weather-description,
+    #temperature,
+    #wind-speed,
+    #location {
+        font-size: 0.65em; /* Tamaño más pequeño de la letra */
+        line-height: 1.1em; /* Espacio entre líneas ligeramente reducido */
+        margin-bottom: 1.5px; /* Reducir el espacio entre los elementos */
+    }
+
+    /* Texto para latitud y longitud */
+    #location {
+        font-size: 0.65em; /* Tamaño más pequeño */
+        margin-bottom: 1.5px;
+    }
+
+    #location span {
+        display: block;
+        margin-bottom: 1px; /* Espacio reducido */
+    }
+
+    footer {
+        padding: 20px;
+        font-size: 0.9em;
+    }
+
+    .dark-mode-toggle {
+        width: 50px;
+        height: 50px;
+    }
+
+    .dark-mode-toggle label {
+        font-size: 1.6em;
+    }
+}
+
+@media (max-width: 480px) {
+    header.hero {
+        padding: 60px 10px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    .hero-subtitle {
+        font-size: 16px;
+    }
+
+    .cta-button {
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+
+    .logo-svg {
+        width: 80px;
+        height: 80px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    textarea {
+        height: 100px;
+        font-size: 12px;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .buttons {
+        gap: 10px;
+    }
+
+    /* Widget del clima para teléfonos */
+    #weather-container {
+        width: 60px;
+        height: 60px;
+        padding: 4px;
+        border-radius: 6px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: width 0.3s, height 0.3s;
+    }
+
+    #weather-container:hover {
+        width: 120px;
+        height: auto;
+        justify-content: start;
+        padding: 6px;
+        overflow: visible;
+    }
+
+    /* Mostrar siempre el emoji y la temperatura */
+    #weather-icon,
+    #weather-temperature {
+        display: block !important;
+    }
+
+    /* Mostrar el nombre de la ciudad solo al expandirse */
+    #weather-country {
+        display: none;
+    }
+
+    /* Mostrar el nombre de la ciudad cuando el widget se expande */
+    #weather-container:hover #weather-country {
+        display: block !important;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.75em;
+        color: #00b4db;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 2px;
+    }
+
+    /* Reducir espaciado entre emoji y temperatura */
+    #weather-icon {
+        font-size: 1em;
+        margin-bottom: 2px;
+    }
+
+    #weather-temperature {
+        font-size: 0.75em;
+        font-weight: bold;
+        margin-bottom: 2px;
+    }
+
+    /* Mostrar solo los detalles adicionales al expandirse */
+    #weather-description,
+    #temperature,
+    #wind-speed,
+    #location {
+        display: none;
+    }
+
+    /* Mostrar detalles adicionales cuando el widget se expande */
+    #weather-container:hover #weather-description,
+    #weather-container:hover #temperature,
+    #weather-container:hover #wind-speed,
+    #weather-container:hover #location {
+        display: block !important;
+    }
+
+    /* Ajustes de texto más compacto para los detalles */
+    #weather-description,
+    #temperature,
+    #wind-speed,
+    #location {
+        font-size: 0.65em; /* Tamaño más pequeño de la letra */
+        line-height: 1.1em;
+        margin-bottom: 1.5px;
+    }
+
+    /* Texto para latitud y longitud */
+    #location {
+        font-size: 0.65em;
+        margin-bottom: 1.5px;
+    }
+
+    #location span {
+        display: block;
+        margin-bottom: 1px;
+    }
+
+    footer {
+        padding: 15px;
+        font-size: 0.8em;
+    }
+
+    .dark-mode-toggle {
+        width: 40px;
+        height: 40px;
+    }
+
+    .dark-mode-toggle label {
+        font-size: 1.4em;
+    }
+}
